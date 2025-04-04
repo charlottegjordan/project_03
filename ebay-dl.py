@@ -6,15 +6,14 @@ import json
 
 def parse_itemssold(text):
     numbers = ''
-    if not text:
-        return 0
-    
     for char in text:
         if char.isdigit():
             numbers += char
+    
     if 'sold' in text and numbers:
         return int(numbers)
-    return 0
+    else:
+        return 0
 
 
 def parse_itemshipping(text):
@@ -28,6 +27,7 @@ def parse_itemshipping(text):
 
     if shipping_deets:  
         return int(shipping_deets)
+
 
 def parse_itemprice(text):
     numbers = ''
