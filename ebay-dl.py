@@ -65,7 +65,6 @@ r = requests.get(url)
 status = r.status_code
 print('status=', status)
 html = r.text
-#print('html=', html[:50])
 
 # process the html
 soup = BeautifulSoup(html, 'html.parser')
@@ -97,7 +96,6 @@ for tag_item in tags_items:
     tags_shipping = tag_item.select('.s-item__logisticsCost') + tag_item.select('.s-item__freeXDays')
     for tag in tags_shipping:
         item_shipping = parse_itemshipping(tag.text)
-        #item_shipping = tag.text
     
     item_price = 0
     tags_price = tag_item.select(".s-item__price")
