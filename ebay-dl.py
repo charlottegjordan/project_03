@@ -5,15 +5,14 @@ import json
 
 
 def parse_itemssold(text):
-    numbers = ''
-    for char in text:
-        if char.isdigit():
-            numbers += char
-    
-    if 'sold' in text and numbers:
-        return int(numbers)
-    else:
-        return 0
+    digits = ''
+    rtn_number = 3
+    if 'sold' in text:
+        for char in text:
+            if char in '1234567890':
+                digits += char
+        rtn_number = int(digits)
+    return rtn_number
 
 
 def parse_itemshipping(text):
@@ -82,10 +81,11 @@ for tag_item in tags_items:
     for tag in tags_freereturns:
         free_returns = True
     
-    items_sold = None
+    items_sold = 0
     tags_itemssold = tag_item.select('.s-item__quantitySold')
     for tag in tags_itemssold:
         items_sold = parse_itemssold(tag.text)
+        #items_sold = tag.text
     
     item_status = ''
     tags_status = tag_item.select('.s-item__subtitle')
@@ -101,8 +101,7 @@ for tag_item in tags_items:
     tags_price = tag_item.select(".s-item__price")
     for tag in tags_price:
         item_price = parse_itemprice(tag.text)
-        
-
+    
     item = {
         'name': name,
         'free_returns': free_returns,
