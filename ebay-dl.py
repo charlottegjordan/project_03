@@ -51,7 +51,7 @@ print('args.search_term=', args.search_term)
 
 
 # build the url
-for page_number in range(1,2):
+for page_number in range(1, 11):
     url = "https://www.ebay.com/sch/i.html?_nkw=" 
     url += args.search_term 
     url += "&_sacat=0&_from=R40&_pgn="
