@@ -6,6 +6,16 @@ The ebay-dl.py file in this repo collects information on all the listed items in
 
 The repo holds three files, each of which contain the specified information of the items that came up in the first 10 pages of their respecitive keywords, which were "smiski," "jellycat," and "sonny angel."
 
-## How I created those files
+I created these files by running these commands: 
 
+```
+python3 ebay-dl.py 'smiski'
+```
 
+```
+python3 ebay-dl.py 'jellycat'
+```
+
+```
+python3 ebay-dl.py 'sonny angel'
+```
