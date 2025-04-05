@@ -20,7 +20,7 @@ def parse_itemshipping(text):
     if "Free Delivery" in text or "Free delivery" in text:
         return 0
     if "Freight" in text:
-        return "Freight"
+        return 0
 
     shipping_deets = ''.join([char for char in text if char.isdigit()])
 
